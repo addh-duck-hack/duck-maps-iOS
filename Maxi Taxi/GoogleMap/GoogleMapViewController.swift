@@ -33,8 +33,8 @@ class GoogleMapViewController: UIViewController, GoogleMapViewProtocol {
         // Opcional: Añade un marcador al mapa
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: 20.124235315384155, longitude: -98.73545304924497)
-        marker.title = "Pachuca Centro"
-        marker.snippet = "Hidalgo"
+        //marker.title = "Pachuca Centro"
+        //marker.snippet = "Hidalgo"
         marker.map = mapView
         marker.icon = UIImage(named: "UbicacionUser")
         
