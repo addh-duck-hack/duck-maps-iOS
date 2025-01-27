@@ -1,0 +1,19 @@
+//
+//  ViewController.swift
+//  Maxi Taxi
+//
+//  Created by Gerardo Jacobo Luna on 21/11/24.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+
+}
+
