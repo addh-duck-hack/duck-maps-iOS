@@ -30,7 +30,7 @@ class LaunchScreenRouter: LaunchScreenWireframeProtocol {
     }
     func goToMap(){
         let mapView = GoogleMapRouter.createModule()
-        GMSServices.provideAPIKey("AIzaSyDjR_jYJc4inmFesq-9lcUAuf2-EbWnrGc")
+        GMSServices.provideAPIKey("")
         let navigationController = UINavigationController(rootViewController: mapView)
         UIApplication.shared.windows.first?.rootViewController = navigationController
     }
