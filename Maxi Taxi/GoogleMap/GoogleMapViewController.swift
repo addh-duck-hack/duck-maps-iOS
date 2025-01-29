@@ -10,16 +10,30 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
-class GoogleMapViewController: UIViewController, GoogleMapViewProtocol {
+class GoogleMapViewController: UIViewController, GoogleMapViewProtocol, CLLocationManagerDelegate {
 
 	var presenter: GoogleMapPresenterProtocol?
+    
+    var mapView: GMSMapView!
+    let locationManager = CLLocationManager()
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Configura el administrador de ubicación
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        // Configura el mapa de Google
+        let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 15.0)
+        mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
+        mapView.isMyLocationEnabled = true // Muestra el punto azul de ubicación del usuario
+        self.view.addSubview(mapView)
+        
         // Configura la cámara inicial del mapa
-        let camera = GMSCameraPosition.camera(withLatitude: 20.124235315384155, longitude: -98.73545304924497, zoom: 15.0)
-        let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         mapView.settings.myLocationButton = false
         mapView.settings.compassButton = true
         mapView.settings.indoorPicker = false
@@ -29,15 +43,17 @@ class GoogleMapViewController: UIViewController, GoogleMapViewProtocol {
         view.sendSubviewToBack(mapView)
         mapView.isHidden = false
         
-        
-        // Opcional: Añade un marcador al mapa
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 20.124235315384155, longitude: -98.73545304924497)
-        //marker.title = "Pachuca Centro"
-        //marker.snippet = "Hidalgo"
-        marker.map = mapView
-        marker.icon = UIImage(named: "UbicacionUser")
-        
+    }
+    // Actualiza la cámara del mapa con la ubicación del usuario
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15.0)
+            mapView.animate(to: camera)
+            print("Ubicación del usuario: Latitud \(location.coordinate.latitude), Longitud \(location.coordinate.longitude)")
+        }
+    }
+    // Manejo de errores
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error al obtener la ubicación: \(error.localizedDescription)")
     }
 }
-
