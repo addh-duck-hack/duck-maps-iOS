@@ -34,4 +34,9 @@ class LaunchScreenRouter: LaunchScreenWireframeProtocol {
         let navigationController = UINavigationController(rootViewController: mapView)
         UIApplication.shared.windows.first?.rootViewController = navigationController
     }
+    func goToLogin(){
+        let loginView = LoginScreenRouter.createModule()
+        let navigationController = UINavigationController(rootViewController: loginView)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+    }
 }

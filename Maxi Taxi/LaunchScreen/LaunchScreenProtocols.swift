@@ -13,11 +13,13 @@ import Foundation
 //MARK: Wireframe -
 protocol LaunchScreenWireframeProtocol: class {
     func goToMap()
+    func goToLogin()
 
 }
 //MARK: Presenter -
 protocol LaunchScreenPresenterProtocol: class {
     func goToMap()
+    func goToLogin()
 
 }
 

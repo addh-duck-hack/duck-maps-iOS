@@ -24,5 +24,7 @@ class LaunchScreenPresenter: LaunchScreenPresenterProtocol {
     func goToMap(){
         router.goToMap()
     }
-
+    func goToLogin(){
+        router.goToLogin()
+    }
 }

@@ -23,7 +23,8 @@ class LaunchScreenViewController: UIViewController, LaunchScreenViewProtocol {
         UIView.animate(withDuration: 2, delay: 0, options: .curveEaseInOut, animations: {
             self.iconLauncher.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
         }, completion: { _ in
-            self.presenter?.goToMap()
+            //self.presenter?.goToMap()
+            self.presenter?.goToLogin()
         })
     }
 }
