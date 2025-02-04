@@ -13,4 +13,22 @@ import UIKit
 class LoginScreenInteractor: LoginScreenInteractorProtocol {
 
     weak var presenter: LoginScreenPresenterProtocol?
+    
+    func login(name:String, pass:String){
+        let url = "https://maps.duck-hack.cloud/users/login"
+        let params = ["mail" : name, "pass" : pass]
+
+        Services().request(url, complemet: "", method: .post, params: params, token: "", model: LoginResponse.self){response, error in
+            if let responseData = response {
+                if responseData.token != ""{
+                    LoginResponse.getToken(responseData)
+                    self.presenter?.loginSucces()
+                }else{
+                    self.presenter?.loginError(message: "Error en tus credenciales")
+                }
+            }else{
+                self.presenter?.loginError(message: error ?? "")
+            }
+        }
+    }
 }

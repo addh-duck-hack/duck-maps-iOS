@@ -10,12 +10,43 @@
 
 import UIKit
 
-class LoginScreenViewController: UIViewController, LoginScreenViewProtocol {
+class LoginScreenViewController: UIViewController {
 
 	var presenter: LoginScreenPresenterProtocol?
 
-	override func viewDidLoad() {
+    @IBOutlet weak var mailTextField: UITextField!
+    @IBOutlet weak var passTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var faceIdView: UIView!
+    @IBOutlet weak var faceIdButton: UIButton!
+    override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    @IBAction func loginBottonAction(_ sender: Any) {
+        guard let mailStr = mailTextField.text else{
+            return
+        }
+        guard let passStr = passTextField.text else{
+            return
+        }
+        if mailStr == "" || passStr == ""{
+            let alert = UIAlertController(title: "ERROR", message: "Favor de capturar usuario y contraseña", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            //self.presenter?.navigateHome()
+            presenter?.login(name: mailStr, pass: passStr)
+        }
+    }
 }
+extension LoginScreenViewController: LoginScreenViewProtocol {
+    func loginSucces(){
+        self.presenter?.navigateHome()
+    }
+    func loginError(message:String){
+        let alert = UIAlertController(title: "Revisa tus credenciales", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Reintentar", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+

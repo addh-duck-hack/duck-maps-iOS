@@ -21,5 +21,16 @@ class LoginScreenPresenter: LoginScreenPresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
-
+    func login(name: String, pass: String){
+        interactor?.login(name: name, pass: pass)
+    }
+    func loginError(message: String) {
+        view?.loginError(message: message)
+    }
+    func loginSucces() {
+        view?.loginSucces()
+    }
+    func navigateHome(){
+        router.navigateHome()
+    }
 }

@@ -12,10 +12,15 @@ import Foundation
 
 //MARK: Wireframe -
 protocol LoginScreenWireframeProtocol: class {
+    func navigateHome()
 
 }
 //MARK: Presenter -
 protocol LoginScreenPresenterProtocol: class {
+    func navigateHome()
+    func loginSucces()
+    func loginError(message:String)
+    func login(name:String, pass:String)
 
 }
 
@@ -23,10 +28,13 @@ protocol LoginScreenPresenterProtocol: class {
 protocol LoginScreenInteractorProtocol: class {
 
   var presenter: LoginScreenPresenterProtocol?  { get set }
+    func login(name:String, pass:String)
 }
 
 //MARK: View -
 protocol LoginScreenViewProtocol: class {
 
   var presenter: LoginScreenPresenterProtocol?  { get set }
+    func loginSucces()
+    func loginError(message:String)
 }

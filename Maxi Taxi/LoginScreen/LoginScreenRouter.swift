@@ -27,4 +27,9 @@ class LoginScreenRouter: LoginScreenWireframeProtocol {
         
         return view
     }
+    func navigateHome(){
+        let loginView = LaunchScreenRouter.createModule()
+        let navigationController = UINavigationController(rootViewController: loginView)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+    }
 }

@@ -9,6 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginScreenViewController" customModule="Maxi_Taxi" customModuleProvider="target">
             <connections>
+                <outlet property="loginButton" destination="OGF-fc-LO4" id="ElJ-I6-fFW"/>
+                <outlet property="mailTextField" destination="N8L-53-iXA" id="fez-73-58c"/>
+                <outlet property="passTextField" destination="Z43-sX-X6P" id="LOP-qi-ygs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -57,6 +60,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Log In"/>
+                            <connections>
+                                <action selector="loginBottonAction:" destination="-1" eventType="touchUpInside" id="raS-Ec-y4s"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,32 +73,6 @@
                         <constraint firstAttribute="height" constant="90" id="TFK-gO-pOA"/>
                         <constraint firstAttribute="bottom" secondItem="OGF-fc-LO4" secondAttribute="bottom" id="d3p-Df-mI7"/>
                         <constraint firstAttribute="width" constant="90" id="xBo-jE-O2W"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLj-ct-SEx" userLabel="ViewImageFaceId">
-                    <rect key="frame" x="147.5" y="490" width="80" height="80"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faceid" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="U2J-xh-Lwu" userLabel="ImageFaceId">
-                            <rect key="frame" x="0.0" y="0.5" width="80" height="78.5"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjY-Yw-s0Q" userLabel="FaceIdButton">
-                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain"/>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="80" id="6Of-Um-q0H"/>
-                        <constraint firstAttribute="trailing" secondItem="U2J-xh-Lwu" secondAttribute="trailing" id="7KD-0B-zjS"/>
-                        <constraint firstAttribute="bottom" secondItem="xjY-Yw-s0Q" secondAttribute="bottom" id="BW2-iy-drI"/>
-                        <constraint firstItem="U2J-xh-Lwu" firstAttribute="leading" secondItem="LLj-ct-SEx" secondAttribute="leading" id="PTA-Bb-XA6"/>
-                        <constraint firstAttribute="height" constant="80" id="XUW-Ku-McA"/>
-                        <constraint firstItem="xjY-Yw-s0Q" firstAttribute="leading" secondItem="LLj-ct-SEx" secondAttribute="leading" id="Xif-Xy-QaB"/>
-                        <constraint firstAttribute="bottom" secondItem="U2J-xh-Lwu" secondAttribute="bottom" id="cW0-Wf-By9"/>
-                        <constraint firstItem="xjY-Yw-s0Q" firstAttribute="top" secondItem="LLj-ct-SEx" secondAttribute="top" id="ov4-ow-6NK"/>
-                        <constraint firstItem="U2J-xh-Lwu" firstAttribute="top" secondItem="LLj-ct-SEx" secondAttribute="top" id="qQD-Z0-QwY"/>
-                        <constraint firstAttribute="trailing" secondItem="xjY-Yw-s0Q" secondAttribute="trailing" id="s59-Du-hhX"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rz-fW-rZc" userLabel="View CreateAccount">
@@ -117,7 +97,6 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="LLj-ct-SEx" firstAttribute="top" secondItem="7Ks-9b-dgG" secondAttribute="bottom" constant="10" id="9Oo-d2-ubv"/>
                 <constraint firstItem="LoO-YM-dam" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="9tQ-wM-62z"/>
                 <constraint firstAttribute="trailing" secondItem="Z43-sX-X6P" secondAttribute="trailing" constant="40" id="COZ-3O-LZQ"/>
                 <constraint firstAttribute="trailing" secondItem="N8L-53-iXA" secondAttribute="trailing" constant="40" id="EvG-TX-yPb"/>
@@ -125,7 +104,6 @@
                 <constraint firstItem="7Ks-9b-dgG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ic9-BI-e09"/>
                 <constraint firstItem="Z43-sX-X6P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="JMH-jY-KTh"/>
                 <constraint firstAttribute="bottom" secondItem="7Rz-fW-rZc" secondAttribute="bottom" constant="20" id="NDZ-IW-cU6"/>
-                <constraint firstItem="LLj-ct-SEx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Sso-vB-TXz"/>
                 <constraint firstItem="N8L-53-iXA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="ZPl-PA-48H"/>
                 <constraint firstItem="N8L-53-iXA" firstAttribute="top" secondItem="LoO-YM-dam" secondAttribute="bottom" constant="60" id="bQL-kh-1px"/>
                 <constraint firstAttribute="trailing" secondItem="7Rz-fW-rZc" secondAttribute="trailing" constant="20" id="igM-xb-660"/>
@@ -137,7 +115,6 @@
     </objects>
     <resources>
         <image name="AppLogo" width="273" height="270"/>
-        <image name="faceid" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
